@@ -1,0 +1,14 @@
+Improved Todo List
+Calendar - Pedro
+Notifications - Sage
+    Emails
+Timing - Pedro
+Todo input form - Matteo
+Enhance CSS - Yousef
+    Dark mode
+
+Sarandiel#6275 Sage Ironwood
+UncleNoob#0959 Yousef Hosny
+Kushian#7660  Pedro Comas	
+BruiserTheo#9877	Matteo
+calebkang#2981 Caleb kang 
