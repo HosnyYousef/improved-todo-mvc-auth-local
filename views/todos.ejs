@@ -13,7 +13,8 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                <span> Time until due date: <%= el.interval %> - Due date: <%=el.dueDate.toLocaleString('en-us',{month:'short'})%>/<%= el.dueDate.getUTCDate() %></span>
+                <span class='del'> Delete </span> 
             </li>
     <% }) %>    
     </ul>
