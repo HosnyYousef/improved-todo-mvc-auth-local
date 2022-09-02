@@ -74,4 +74,29 @@ async function markIncomplete(){
 function toggleDarkMode() {
     // some logic to change the class on the body tag
     }
+<<<<<<< HEAD
 >>>>>>> 5e056b3 (yousef's HTML and CSS work)
+=======
+
+
+// DARK MODE ******************
+
+const checkbox =
+document.getElementById('checkbox');
+
+checkbox.addEventListener('change', () => {
+// change the theme of the website
+
+document.body.classList.toggle('dark');
+});
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 037f4d7 (got darkmode to work)
