@@ -17,9 +17,19 @@ const TodoSchema = new mongoose.Schema({
     type: Date,
     required: false
   },
+  dayAdd:{
+    type: Date,
+    required: false
+  },
+  interval:{
+    type: String,
+    required: false,
+  },
   reminders: {
     type: Boolean
   }
 })
+  
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Todo', TodoSchema, 'Users_Todo')
+

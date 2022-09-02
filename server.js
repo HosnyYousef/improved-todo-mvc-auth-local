@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -40,7 +41,8 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
+
  
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
