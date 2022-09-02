@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 .env
 node_modules
+=======
+node_modules
+.vscode/*
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)

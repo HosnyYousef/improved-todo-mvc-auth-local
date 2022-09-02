@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Todo List</title>
+=======
+    <title>Document</title>
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,8 +17,12 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+<<<<<<< HEAD
                 <span> Time until due date: <%= el.interval %> - Due date: <%=el.dueDate.toLocaleString('en-us',{month:'short'})%>/<%= el.dueDate.getUTCDate() %></span>
                 <span class='del'> Delete </span> 
+=======
+                <span class='del'> Delete </span>
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
             </li>
     <% }) %>    
     </ul>
@@ -22,10 +30,14 @@
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
+<<<<<<< HEAD
         <input type="text" placeholder="Enter Todo Item" name='todoItem' required>
         <input type="date" placeholder="Due date" name="dueDate" id="">
         <label for="reminders">Enable reminders?</label>
         <input type="checkbox" name="reminders" id="reminders">
+=======
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
         <input type="submit">
     </form>
 

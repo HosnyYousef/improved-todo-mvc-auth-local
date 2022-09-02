@@ -1,10 +1,139 @@
 h1{
+<<<<<<< HEAD
     color: red;
 }
+=======
+    color: black;
+}
+
+.box {
+    background-color: white;
+    width: 400px !important;
+    height: 500px;
+    left: 0;
+    margin: 15% 39%;
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    border-radius: 25px;
+}
+
+body {
+    /* background-image: url(/images/city-background.jpg); */
+    background-image: linear-gradient(to right, #C5C2F3, #786BCC );
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
 .completed{
     text-decoration: line-through;
     color: gray;
 }
+<<<<<<< HEAD
 .not{
     text-decoration: underline;
 }
+=======
+
+.not{
+    text-decoration: underline;
+}
+
+.login {
+    margin: 40% 31%;
+}
+
+.social-login{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+ /* dark mode prep */
+
+ body.dark-mode {
+    background:black;
+    }
+
+    #dark-mode:checked ~ * {
+        background:black;
+    }
+
+
+    .color-scheme-wrapper {
+        min-height:100vh;
+        background:white;
+        color:black;
+        }
+        
+        #color-mode:checked ~ .color-scheme-wrapper {
+        background:black;
+        color:white;
+        }
+
+
+        :root {
+            --bg:#F4F0EB;
+            --text:#141414;
+            }
+            
+            #dark-mode:checked ~ .color-scheme-wrapper {
+            --bg:#333;
+            --text:#fff;
+            }
+            
+            
+            .color-scheme-wrapper {
+            background:var(--bg);
+            color:var(--text);
+            }
+
+            :root {
+                --bg:white;
+                --text:black;
+                }
+                
+                @media (prefers-color-scheme: dark) {
+                :root {
+                --bg:black;
+                --text:white;
+                }
+                }
+                
+                #color-mode:checked ~ .color-scheme-wrapper {
+                --bg:black;
+                --text:white;
+                }
+                
+                @media (prefers-color-scheme: dark) {
+                #color-mode:checked ~ .color-scheme-wrapper {
+                --bg:white;
+                --text:black;
+                }
+                }
+                
+                
+                .color-scheme-wrapper {
+                min-height:100vh;
+                background:var(--bg);
+                color:var(--text);
+                }
+
+                .light-mode-hide {
+                    display:none;
+                    }
+                    
+                    @media (prefers-color-scheme: dark) {
+                    .dark-mode-hide {
+                    display:none;
+                    }
+                    }
+                    
+                    @media (prefers-color-scheme: dark) {
+                    .light-mode-hide {
+                    display:initial;
+                    }
+                    }
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)

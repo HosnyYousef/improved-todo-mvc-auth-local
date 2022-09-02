@@ -66,4 +66,12 @@ async function markIncomplete(){
     }catch(err){
         console.log(err)
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+function toggleDarkMode() {
+    // some logic to change the class on the body tag
+    }
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
