@@ -69,7 +69,10 @@ async function markIncomplete(){
 
 }
 
-// DARK MODE ******************
+
+// *************************
+// DARK MODE 
+// *************************
 
 const checkbox =
 document.getElementById('checkbox');
