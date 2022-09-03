@@ -1,11 +1,24 @@
 Improved Todo List
 Calendar - Pedro
-Notifications - Sage
-    Emails
 Timing - Pedro
+Notifications - Sage
+    Emails/SMS
 Todo input form - Matteo
+    Expand/make more user-friendly
 Enhance CSS - Yousef
     Dark mode
+
+Repeating events 
+Achievements / streak system - Caleb
+Task groups/ hierarchy 
+Data validation (no due dates in the past)
+    Input - may be an option to start at today's date
+Completed tasks list - 
+    Store completed date
+    Store streak--# times completed
+        If task is overdue - reset timesCompleted to 0
+Allow editing of todos
+
 
 Sarandiel#6275 Sage Ironwood
 UncleNoob#0959 Yousef Hosny
