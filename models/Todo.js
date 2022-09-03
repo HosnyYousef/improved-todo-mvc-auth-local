@@ -12,7 +12,6 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-<<<<<<< HEAD
   },
   dueDate: {
     type: Date,
@@ -33,10 +32,3 @@ const TodoSchema = new mongoose.Schema({
   
 
 module.exports = mongoose.model('Todo', TodoSchema, 'Users_Todo')
-
-=======
-  }
-})
-
-module.exports = mongoose.model('Todo', TodoSchema)
->>>>>>> 5e056b3 (yousef's HTML and CSS work)

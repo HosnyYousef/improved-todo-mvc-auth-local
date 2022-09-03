@@ -1,9 +1,5 @@
 const express = require('express')
 const app = express()
-<<<<<<< HEAD
-
-=======
->>>>>>> 5e056b3 (yousef's HTML and CSS work)
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -44,13 +40,8 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
-<<<<<<< HEAD
 
  
 app.listen(process.env.PORT || PORT, ()=>{
-=======
- 
-app.listen(process.env.PORT, ()=>{
->>>>>>> 5e056b3 (yousef's HTML and CSS work)
     console.log('Server is running, you better catch it!')
 })    

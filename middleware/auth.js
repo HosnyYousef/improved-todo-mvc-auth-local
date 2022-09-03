@@ -1,21 +1,16 @@
 module.exports = {
-    ensureAuth: function (req, res, next) {
-      if (req.isAuthenticated()) {
-        return next()
-      } else {
-        res.redirect('/')
-      }
-<<<<<<< HEAD
-    },
-    ensureGuest: function (req, res, next) {
-      if (!req.isAuthenticated()) {
-        return next()
-      } else {
-        res.redirect('/dashboard')
-      }
-    },
-=======
+  ensureAuth: function (req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    } else {
+      res.redirect('/')
     }
->>>>>>> 5e056b3 (yousef's HTML and CSS work)
-  }
-  
+  },
+  ensureGuest: function (req, res, next) {
+    if (!req.isAuthenticated()) {
+      return next()
+    } else {
+      res.redirect('/dashboard')
+    }
+  },
+}
