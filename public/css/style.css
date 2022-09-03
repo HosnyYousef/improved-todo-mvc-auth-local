@@ -1,10 +1,136 @@
-h1{
-    color: red;
+.allContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+.mainTitle {
+    font-size: 5rem;
+    margin: 15% 0 0 0;
+    color: black;
 }
-.not{
-    text-decoration: underline;
+
+/* h1{
+    color: black;
+} */
+
+.boxTitle { 
+    display: flex;
+    align-content: center;
+    font-size: 2rem;
+}
+
+
+.box {
+    background-color: rgb(255, 255, 255, 0.5);
+    width: 400px !important;
+    height: 650px;
+    left: 0;
+    margin: 15% 39%;
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    border-radius: 25px;
+}
+
+
+body {
+    /* background-image: url(/images/city-background.jpg); */
+    background-image: linear-gradient(to right, #C5C2F3, #786BCC );
+    background-size:cover;
+    /* background-repeat: no-repeat; */
+}
+
+
+.login {
+    margin: 40% 31%;
+    transform: scale(1.5);
+}
+
+.social-login{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* transform: scale(1.5); */
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* ******************************* 
+DarkMode BUTTON 
+******************************* */
+
+* {
+    box-sizing: border-box;
+}
+
+.darkmode {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    margin: 0;
+    transition: background 0.2s linear;
+}
+
+.checkbox {
+    opacity: 0;
+    position:absolute;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+
+.label {
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+    margin: 25px 60px;
+}
+    
+.ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;   
+    width: 22px;
+    transition: transform 0.2s linear;
+}    
+
+.fa-moon {
+    color: #f1c40f;
+}
+    
+.fa-sun {
+    color: #f39c12;
+}
+    
+/* ******************************* 
+Darkmode DARK TRANSITION 
+******************************* */    
+
+
+body.dark {
+    background-image: linear-gradient(to right, #4d4c5c, #1e07b0 );
+    /* filter:invert(1) hue-rotate(180deg); */
+    transition: background 0.2s linear;
+}
+
+body.dark .mainTitle {
+    color: rgb(176, 176, 176);
+}
+
+body.dark .box {
+    background-color: rgba(115, 115, 115, 0.5);
+    color: rgb(176, 176, 176);
 }

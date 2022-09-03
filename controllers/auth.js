@@ -37,7 +37,13 @@ const User = require('../models/User')
   }
   
   exports.logout = (req, res) => {
+<<<<<<< HEAD
     req.logout()
+=======
+    req.logout(() => {
+      console.log('User has logged out.')
+    })
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
     req.session.destroy((err) => {
       if (err) console.log('Error : Failed to destroy the session during logout.', err)
       req.user = null

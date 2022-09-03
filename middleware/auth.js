@@ -5,6 +5,7 @@ module.exports = {
       } else {
         res.redirect('/')
       }
+<<<<<<< HEAD
     },
     ensureGuest: function (req, res, next) {
       if (!req.isAuthenticated()) {
@@ -13,5 +14,8 @@ module.exports = {
         res.redirect('/dashboard')
       }
     },
+=======
+    }
+>>>>>>> 5e056b3 (yousef's HTML and CSS work)
   }
   
