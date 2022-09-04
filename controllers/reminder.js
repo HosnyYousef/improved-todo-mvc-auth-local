@@ -4,6 +4,19 @@ const Users = require('../models/User')
 const cron = require('node-cron')
 const { sendSMS } = require('./sms');
 
+//Runs once per day at DAILY_REMINDER_TIME (UTC)
+//For help changing cronStr: https://cron.help/#0_0_*_*_*
+function sendDailyReminders() {
+    let reminderTime = process.env.DAILY_REMINDER_TIME || 0
+    let cronStr = `0 ${reminderTime} * * *`
+    //cronStr = `* * * * *`  //FOR TESTING: Uncomment and this will try to send a text every minute.
+    console.log('Reminder cron scheduled')
+    cron.schedule(cronStr, () => {
+        console.log('Reminders.....GO!')
+        getReminders()
+      });
+}
+sendDailyReminders()
 
 //Get list of users who have reminders enabled
 findUsersWithReminders = async () => {
@@ -54,15 +67,3 @@ sendReminders = async (name,number,tasks) => {
         console.log(error)
     }
 }
-//Runs once per day at DAILY_REMINDER_TIME (UTC)
-//For help changing cronStr: https://cron.help/#0_0_*_*_*
-function sendDailyReminders() {
-    let reminderTime = process.env.DAILY_REMINDER_TIME || 0
-    let cronStr = `0 ${reminderTime} * * *`
-    console.log('Reminder cron scheduled')
-    cron.schedule(cronStr, () => {
-        console.log('Reminders.....GO!')
-        getReminders()
-      });
-}
-sendDailyReminders()
