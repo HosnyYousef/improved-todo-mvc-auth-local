@@ -38,7 +38,7 @@ findTasksDue = async (user) => {
     return todoItems
 }
 
-//Gather list of tasks due today for all users with reminders enabled
+//Find tasks due today for all users with reminders enabled, then send them a reminder message
 getReminders = async () => {
     try {
         const userList = await findUsersWithReminders()
@@ -47,8 +47,6 @@ getReminders = async () => {
             // tasks[user] = await findTasksDue(usersToRemind[user]._id)
             let tasks = await findTasksDue(userList[user]._id)
             if (tasks.length > 0) {
-                console.log(userList[user].userName)
-                console.log(tasks)
                 sendReminders(userList[user].userName,userList[user].phone,tasks)
             }  
         }
@@ -58,6 +56,7 @@ getReminders = async () => {
     }
 }
 
+//Send SMS reminder 
 sendReminders = async (name,number,tasks) => {
     try {
         let message = `${name}, you have ${tasks.length} tasks to get done today.`
