@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const todosController = require('../controllers/todos') 
+const enableReminders = require('../controllers/reminder') //Comment this out to disable the daily SMS reminders
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getTodos)
