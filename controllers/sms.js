@@ -6,12 +6,12 @@ const client = require('twilio')(accountSid, authToken);
 
 //TODO: replace MY_PHONE_NUMBER with user.phone
 module.exports = {
-    sendSMS: (msg) => {    
+    sendSMS: (num,msg) => {    
         client.messages
         .create({
             body:` ${msg}`,
             from: `${process.env.TWILIO_PHONE_NUMBER}`,
-            to: `${process.env.MY_PHONE_NUMBER}`
+            to: `${num}`
         })
         .then(message => console.log(message.sid));
     }

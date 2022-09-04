@@ -1,33 +1,14 @@
-//Controlls automated reminders. Sends SMS message once per day, if user has a phone number and enabled reminders
-
-//Once per day, go through user DB and select those with reminders enabled. Count how many todos each user has. Then, send them a text saying "This is a reminder that you have {n} items to do today."
-
-//On todo entry form => if user checks 'reminder' for a task, open a menu for them to choose a date/time. 
-//For now, send alert at 7AM on the due date.
+//Controlls automated reminders. Sends SMS message once per day to users with due items and reminders enabled.
 const Todo = require('../models/Todo')
 const Users = require('../models/User')
 const cron = require('node-cron')
-const SMS = require('./sms')
+const { sendSMS } = require('./sms');
 
 
-
-// Schedule tasks to be run on the server.
-function setReminder() {
-    
-    cron.schedule('* * * * *', () => {
-        console.log('running a task every minute');
-      });
-}
-setReminder()
-function cancelReminder() {
-
-}
-
-//Gets list of users who have reminders enabled
+//Get list of users who have reminders enabled
 findUsersWithReminders = async () => {
     try {
         const userList = await Users.find({ reminders: true })
-        // console.log(userList)
         return userList
     } catch(err) {
         console.log(err)
@@ -35,52 +16,53 @@ findUsersWithReminders = async () => {
     }
 }
 
-//Get list of tasks due today for a specified user
+//Get list of tasks due today (or in the past) for a specified user
 findTasksDue = async (user) => {
-    // console.log(`Find tasks due for ${user}`)
-    const todoItems = await Todo.find({userId: user})
-    // console.log(todoItems)
+    let today = new Date //NOTE: Times are UTC
+    const todoItems = await Todo.find({userId: user,
+        dueDate: {$lte: today}
+    })
+    return todoItems
 }
 
-
+//Gather list of tasks due today for all users with reminders enabled
 getReminders = async () => {
     try {
-        const usersToRemind = await findUsersWithReminders()
-        // console.log(usersToRemind)
-        // console.log('**********')
-        let tasks = []
-        for (let user in usersToRemind) {
-            // console.log(user)
-            // console.log(`Find tasks for ${usersToRemind[user]._id}`)
-            tasks[user] = await findTasksDue(usersToRemind[user]._id)
+        const userList = await findUsersWithReminders()
+        // let tasks = []
+        for (let user in userList) {
+            // tasks[user] = await findTasksDue(usersToRemind[user]._id)
+            let tasks = await findTasksDue(userList[user]._id)
+            if (tasks.length > 0) {
+                console.log(userList[user].userName)
+                console.log(tasks)
+                sendReminders(userList[user].userName,userList[user].phone,tasks)
+            }  
         }
-        //isItDueToday(tasks[0])
-        console.log(tasks[0])
+        // return tasks
     } catch (error) {
         console.log(error)
     }
 }
 
-getReminders()
-
-
-isItDueToday = (dueDate) => {
-    let today = new Date()
-    console.log(today.getDate())
-    console.log('TODAY!!!')
+sendReminders = async (name,number,tasks) => {
+    try {
+        let message = `${name}, you have ${tasks.length} tasks to get done today.`
+        console.log(message)
+        sendSMS(number,message)
+    } catch (error) {
+        console.log(error)
+    }
 }
-
-
-// SMS.sendSMS('Hello world!')
-
-// module.exports = {
-//     setReminder: {
-//         cron.schedule('* * * * *', () => {
-//             console.log('running a task every two minutes');
-//           });
-//     },
-//     cancelReminder: {
-
-//     }
-
-// }
+//Runs once per day at DAILY_REMINDER_TIME (UTC)
+//For help changing cronStr: https://cron.help/#0_0_*_*_*
+function sendDailyReminders() {
+    let reminderTime = process.env.DAILY_REMINDER_TIME || 0
+    let cronStr = `0 ${reminderTime} * * *`
+    console.log('Reminder cron scheduled')
+    cron.schedule(cronStr, () => {
+        console.log('Reminders.....GO!')
+        getReminders()
+      });
+}
+sendDailyReminders()
