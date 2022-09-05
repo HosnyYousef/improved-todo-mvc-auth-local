@@ -10,6 +10,16 @@
     color: black;
 }
 
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.not {
+    text-decoration: underline;
+    font-weight: 900;
+}
+
 /* h1{
     color: black;
 } */

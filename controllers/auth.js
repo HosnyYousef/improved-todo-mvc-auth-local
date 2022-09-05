@@ -83,7 +83,8 @@ const User = require('../models/User')
       email: req.body.email,
       password: req.body.password,
       phone: phoneNum,
-      reminders: enableReminders
+      reminders: enableReminders,
+      streak: 0
     })
   
     User.findOne({$or: [

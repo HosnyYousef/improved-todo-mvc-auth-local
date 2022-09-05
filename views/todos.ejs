@@ -21,6 +21,8 @@
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
+    <h2>Streak: <%=streak%></h2>
+
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem' required>
         <input type="date" placeholder="Due date" name="dueDate" id="">
