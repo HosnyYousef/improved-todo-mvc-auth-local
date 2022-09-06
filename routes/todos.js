@@ -1,8 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const todosController = require('../controllers/todos') 
-const enableReminders = require('../controllers/reminder') //Comment this out to disable the daily SMS reminders
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
+require('dotenv').config({path: './config/.env'})
+
+//Enable SMS reminders if Twilio acount info is available
+if (process.env.TWILIO_ACCOUNT_SID) {
+    const enableReminders = require('../controllers/reminder')
+} else {
+    console.log('Reminders disabled--see README for info on how to enable them')
+} 
 
 router.get('/', ensureAuth, todosController.getTodos)
 
