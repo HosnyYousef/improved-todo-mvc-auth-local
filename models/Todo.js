@@ -19,7 +19,7 @@ const TodoSchema = new mongoose.Schema({
   },
   dayAdd:{
     type: Date,
-    required: false
+    default: new Date,
   },
   interval:{
     type: String,

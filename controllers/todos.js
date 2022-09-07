@@ -11,7 +11,13 @@ module.exports = {
             const todoItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
             streakCount = req.user.streak
-            const chage  =  await todoItems.forEach(n => n.interval = humanizeDuration(new Date(n.dueDate).getTime() - new Date().getTime()).split(",")[0])
+            const chage  =  await todoItems.forEach(n => {
+                let interval = new Date(n.dueDate).getTime() - new Date().getTime()
+                console.log(interval)
+                if(interval > 86400000) return n.interval = humanizeDuration(interval).split(",")[0]
+                else if(interval < 0) return n.interval = "The Due day has passed"
+                else if (interval > 0 && interval < 86400000) return n.interval = "Today"
+            });
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user, streak: streakCount})
         }catch(err){
             console.log(err)
