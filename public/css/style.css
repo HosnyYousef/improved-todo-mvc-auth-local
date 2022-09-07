@@ -67,6 +67,7 @@ body {
     /* background-image: url(/images/city-background.jpg); */
     background-image: linear-gradient(to right, #C5C2F3, #786BCC );
     background-size:cover;
+    height: 100vh;
     /* background-repeat: no-repeat; */
 }
 
