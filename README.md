@@ -31,15 +31,15 @@ twilio,
 
 # Things to add
 
- To enable SMS notifications, you will need to provide a Twilio account (https://www.twilio.com/). If you choose not to use this feature, you don't need to add the variables starting with 'TWILIO_' to your .env file.
+ To enable SMS notifications, you will need to provide a Twilio account (https://www.twilio.com/). If you choose not to use this feature, you only need PORT and DB_STRING.
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: your database URI
-  - TWILIO_ACCOUNT_SID:  Found on your Twilio dashboard
-  - TWILIO_AUTH_TOKEN:    Found on your Twilio dashboard  
-  - TWILIO_PHONE_NUMBER: phone number assigned to your Twilio account
-  -
+- Create a `.env` file and add the following as `key = value` 
+  - PORT = 2121 (can be any port example: 3000) 
+  - DB_STRING = your database URI
+  - TWILIO_ACCOUNT_SID =  Found on your Twilio dashboard
+  - TWILIO_AUTH_TOKEN =    Found on your Twilio dashboard  
+  - TWILIO_PHONE_NUMBER = Phone number assigned to your Twilio account
+  - DAILY_REMINDER_TIME = What hour, in UTC, to send out reminders. For example, to recieve a reminder at 7AM EST (UTC+4), set this to 11.
  ---
  
  Have fun testing and improving it! 😎
