@@ -27,9 +27,6 @@
     "twilio": "^3.81.0",
     "validator": "^13.7.0"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calubkang/improved-todo-mvc-auth-local.git"
@@ -37,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/calubkang/improved-todo-mvc-auth-local/issues"
   },
-  "homepage": "https://github.com/calubkang/improved-todo-mvc-auth-local#readme"
+  "homepage": "https://github.com/calubkang/improved-todo-mvc-auth-local#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }

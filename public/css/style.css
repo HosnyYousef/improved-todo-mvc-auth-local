@@ -4,6 +4,24 @@
     flex-direction: column;
 }
 
+.todoItem{
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.flex-{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .mainTitle {
     font-size: 5rem;
     margin: 15% 0 0 0;
@@ -19,6 +37,7 @@
     text-decoration: underline;
     font-weight: 900;
 }
+
 
 /* h1{
     color: black;
